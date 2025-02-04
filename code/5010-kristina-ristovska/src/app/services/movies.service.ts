@@ -16,4 +16,10 @@ export class MoviesService {
       .get<Movies[]>(`${this.baseUrl}/movies`)
       .pipe(catchError((error) => throwError(() => new Error(error))));
   }
+
+  getMovieById(id: number) {
+    return this.httpClient
+      .get<Movies[]>(`${this.baseUrl}/movies?id=${id}`)
+      .pipe(catchError((error) => throwError(() => new Error(error))));
+  }
 }

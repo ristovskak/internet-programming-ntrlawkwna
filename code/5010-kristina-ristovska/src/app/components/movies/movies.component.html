@@ -6,6 +6,7 @@
         <h3>{{ movie.title }}</h3>
         <p><strong>Genre:</strong> {{ movie.genre }}</p>
         <p><strong>Year:</strong> {{ movie.year }}</p>
+        <button (click)="openInfo(movie.id)">Movie info</button>
       </div>
     </li>
   </ul>

@@ -4,28 +4,30 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Movies } from '../../models/movies.model';
 import { MovieCardComponent } from './movie-card/movie-card/movie-card.component';
 import { FormsModule } from '@angular/forms';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-movies',
-  imports: [MovieCardComponent, FormsModule, NgFor],
+  imports: [MovieCardComponent, FormsModule, NgFor, CommonModule],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.css',
 })
 export class MoviesComponent implements OnInit {
-  private recepiesService = inject(MoviesService);
+  private movieService = inject(MoviesService);
   private destroyRef = inject(DestroyRef);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   movies: Movies[] = [];
   ngOnInit(): void {
+    this.getMovies();
+  }
 
-    this.getMovies()
-    throw new Error('Method not implemented.');
+  openInfo(id: number) {
+    this.router.navigate(['/movies/', id]);
   }
 
   getMovies() {
-    const subscription = this.recepiesService.getAllMovies().subscribe({
+    const subscription = this.movieService.getAllMovies().subscribe({
       next: (data) => {
         console.log('Fetched Data:', data);
         this.movies = data;
