@@ -267,6 +267,3 @@ The about page should display the following information:
     - A component for the cast create page (bonus)
 - The application should have a (at least one) service that provides access to the API data
 - The components should use the service to access the data, and should not access the API directly
-- The application should have a routing module that defines the routes for the pages
-
-
