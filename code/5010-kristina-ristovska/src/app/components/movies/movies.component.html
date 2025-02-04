@@ -1,0 +1,12 @@
+<div class="movie-list-container">
+  <h2>Movie List</h2>
+  <ul>
+    <li *ngFor="let movie of movies">
+      <div class="movie-card">
+        <h3>{{ movie.title }}</h3>
+        <p><strong>Genre:</strong> {{ movie.genre }}</p>
+        <p><strong>Year:</strong> {{ movie.year }}</p>
+      </div>
+    </li>
+  </ul>
+</div>
